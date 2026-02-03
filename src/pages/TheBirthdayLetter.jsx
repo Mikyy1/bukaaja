@@ -1,0 +1,72 @@
+‎import React, { useState } from "react";
+‎import { useNavigate } from "react-router-dom"; 
+‎
+‎function TheBirthdayLetter() {
+‎    const navigate = useNavigate();
+‎    const [popupImage, setPopupImage] = useState(null);
+‎
+‎    const openPopup = (imageSrc) => {
+‎        setPopupImage(imageSrc);
+‎    };
+‎
+‎    const closePopup = () => {
+‎        setPopupImage(null);
+‎    };
+‎
+‎    return (
+‎        <div className="app">
+‎            <div className="paper">
+‎                <div className="letter">
+‎                    <p>Hi, sayangkuuuuuu</p>
+‎                    <p>
+‎                        akuuu sedih baca dan membuat surat ini lagi dan lagii, semoga kamuu suka dan menghargai hal kecil seperti ini, aku bingung gimana lagi harus apa dengan cowo banyak kurangnyaaa, maaf banget :(
+‎                    </p>
+‎                    <p>
+‎                        aku kadang suka insecure dimana orang orang bisa ngasih cewenya apapun yang mereka mau, tapi tetap aja aku bakalan berusaha menjadi terbaik di sisi kamuu, I LOVE YOUU SEMOGA KAMU SUKA SURAT INI !
+‎                    </p>
+‎                    <p style={{ textAlign: "right" }}>with love, Mikimosss</p>
+‎                </div>
+‎            </div>
+‎
+‎            <div className="title">
+‎                <p>mau lagi?</p>
+‎            </div>
+‎            <div className="img-btn">
+‎                <button className="img-button" onClick={() => openPopup("img/thanks-letter.png")}>
+‎                    <img src="img/letter2.png" alt="letter" className="img-small"/>
+‎                    <span className="btn-text">makasih</span>
+‎                </button>
+‎                <button className="img-button" onClick={() => openPopup("img/sorry-letter.png")}>
+‎                    <img src="img/letter2.png" alt="letter" className="img-small"/>
+‎                    <span className="btn-text">maaf</span>
+‎                </button>
+‎            </div>
+‎
+‎            <div className="img-btn">
+‎                <button className="img-button" onClick={() => openPopup("img/happy-letter.png")}>
+‎                    <img src="img/letter2.png" alt="letter" className="img-small"/>
+‎                    <span className="btn-text">seneng</span>
+‎                </button>
+‎                <button className="img-button" onClick={() => openPopup("img/sad-letter.png")}>
+‎                    <img src="img/letter2.png" alt="letter" className="img-small"/>
+‎                    <span className="btn-text">sedih</span>
+‎                </button>
+‎            </div>
+‎
+‎            <button className="btn" onClick={() => navigate("/")}>
+‎                by mikimosss
+‎            </button>
+‎
+‎            {popupImage && (
+‎                <div className="popup-overlay" onClick={closePopup}>
+‎                    <div className="popup-content" onClick={(e) => e.stopPropagation()}>
+‎                        <img src={popupImage} alt="Popup" className="popup-image" />
+‎                        <button className="close-btn" onClick={closePopup}>X</button>
+‎                    </div>
+‎                </div>
+‎            )}
+‎        </div>
+‎    );
+‎}
+‎
+‎export default TheBirthdayLetter;
